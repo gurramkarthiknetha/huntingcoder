@@ -1,17 +1,16 @@
 import * as fs from 'fs';
-import * as path from 'path';
 
-export async function GET(req: Request) {
+export async function GET() {
     try {
         const filePath = await fs.promises.readdir('./src/app/data/');
-        let allblogs = [];
+        const allblogs = [];
 
         for (let index = 0; index < filePath.length; index++) {
             const item = filePath[index];
             console.log(item);
 
             try {
-                const myfile = await fs.promises.readFile(`src/app/data/${item}`, 'utf-8');
+                const myfile = await fs.promises.readFile(`src/app/data/data${index}.json`, 'utf-8');
                 allblogs.push(JSON.parse(myfile));
             } catch (readError) {
                 console.error(`Error reading file ${item}:`, readError);

@@ -1,7 +1,6 @@
 // Add the "use client" directive to mark this as a Client Component
 'use client';
 
-import { useEffect, useState } from 'react';
 import Head from 'next/head';
 
 export default function Page() {
